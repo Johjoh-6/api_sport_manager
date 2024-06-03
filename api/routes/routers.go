@@ -16,7 +16,13 @@ func SetupRoutes(db *surrealdb.DB, baseUrl string, version string) *gin.Engine {
 		// Users
 		SetupUsersRoutes(db, router)
 		SetupPlayerRoutes(db, router)
-
+		SetupEventRoutes(db, router)
+		SetupEventTypeRoutes(db, router)
+		SetupMatchHistoryRoutes(db, router)
+		SetupTeamRoutes(db, router)
+		SetupSportRoutes(db, router)
+		SetupPositionRoutes(db, router)
+		SetupBillRoutes(db, router)
 	}
 	return r
 }
