@@ -1,8 +1,8 @@
 package main
 
 import (
-	"handySports/api/api/routes"
 	"handySports/api/database"
+	"handySports/api/routes"
 
 	"log"
 )
@@ -13,19 +13,18 @@ func init() {
 
 	// get the variable for the database connection
 	connectString := GetEnv("DB_CONNECT_STRING", "ws://localhost:8000/rpc")
-	username := GetEnv("DB_USERNAME", "root")
-	password := GetEnv("DB_PASSWORD", "root")
+	// username := GetEnv("DB_USERNAME", "root")
+	// password := GetEnv("DB_PASSWORD", "root")
 	namespace := GetEnv("DB_NAMESPACE", "default")
 	collection := GetEnv("DB_COLLECTION", "default")
 
 	// Connect to the database
-	database.Connect(connectString, username, password, namespace, collection)
+	// database.Connect(connectString, username, password, namespace, collection)
+	database.Connect(connectString, namespace, collection)
 }
 
 func main() {
-	log.Printf("Woohooo")
 	// Load environment variables
-
 	fullUrl := GetEnv("API_URL", "http://localhost:8080/api/v1")
 	port := GetEnv("API_PORT", "8080")
 	basePath := GetEnv("API_BASE_PATH", "/api")
